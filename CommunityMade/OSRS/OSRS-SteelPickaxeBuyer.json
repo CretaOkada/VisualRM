@@ -1,0 +1,876 @@
+{
+  "Variables": [
+    {
+      "name": "Coins",
+      "value": "Coins",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "Steel pickaxe",
+      "value": "Steel pickaxe",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "Nurmof",
+      "value": "Nurmof",
+      "type": "NPC"
+    },
+    {
+      "name": "FaladorBankCoordinates",
+      "value": "Coordinate(3014, 3356, 0)",
+      "type": "COORDINATE"
+    },
+    {
+      "name": "PickaxeShop",
+      "value": "Coordinate(2998, 9842, 0)",
+      "type": "COORDINATE"
+    },
+    {
+      "name": "True",
+      "value": "True",
+      "type": "BOOL"
+    },
+    {
+      "name": "False",
+      "value": "False",
+      "type": "BOOL"
+    },
+    {
+      "name": "NoneInStock",
+      "value": "False",
+      "type": "BOOL"
+    },
+    {
+      "name": "Trade",
+      "value": "Trade",
+      "type": "ACTION"
+    },
+    {
+      "name": "Bank",
+      "value": "Bank",
+      "type": "ACTION"
+    },
+    {
+      "name": "FullInventorySteelPickaxe",
+      "value": "27",
+      "type": "NUMBER"
+    },
+    {
+      "name": "NotEnoughCoins",
+      "value": "499",
+      "type": "NUMBER"
+    },
+    {
+      "name": "Five",
+      "value": "5",
+      "type": "NUMBER"
+    },
+    {
+      "name": "Ten",
+      "value": "10",
+      "type": "NUMBER"
+    }
+  ],
+  "NodeCollection": [
+    {
+      "name": "StartCondition",
+      "base": {
+        "id": "af4ffd2b-58ca-4b3a-9ec1-27158f42dc2e",
+        "position": {
+          "x": "0.0",
+          "y": "0.0"
+        },
+        "flowTasks": {
+          "success": "283af9dd-70cc-402b-86a1-189449990b05"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "GameMode": "OSRS",
+        "IntervalLow": 579.8533039708291,
+        "IntervalHigh": 992.3176765441895
+      }
+    },
+    {
+      "name": "InventoryCondition",
+      "base": {
+        "id": "283af9dd-70cc-402b-86a1-189449990b05",
+        "position": {
+          "x": "144.0",
+          "y": "244.0"
+        },
+        "flowTasks": {
+          "success": "e0c15ee6-8ef7-41ba-9a01-6cfe7898336f",
+          "failure": "5d395b4b-f385-4b77-8363-16a2739c1848"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "ItemValues": [
+          "True"
+        ],
+        "ItemRegex": false,
+        "Condition": "Is Full"
+      }
+    },
+    {
+      "name": "BankWithdrawAction",
+      "base": {
+        "id": "6c7f8813-035d-4628-a16d-c61759426a18",
+        "position": {
+          "x": "1020.0",
+          "y": "760.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "type": "BankQuery"
+        }
+      },
+      "variables": {
+        "Values": [
+          "WorstCaseCoinsRequiredForSteelPickaxe"
+        ],
+        "ItemRegex": false,
+        "Condition": "VisualRm preset",
+        "ConditionRegex": false
+      }
+    },
+    {
+      "name": "TraversalAction",
+      "base": {
+        "id": "0f48a4b1-5bff-46e2-8980-5a64405828e7",
+        "position": {
+          "x": "992.0",
+          "y": "283.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Condition": "To coordinates:",
+        "Coordinates": [
+          "FaladorBankCoordinates"
+        ],
+        "Exact": false,
+        "Radius": "WEB_ONLY"
+      }
+    },
+    {
+      "name": "BankDepositAction",
+      "base": {
+        "id": "b1e049d1-9a94-4782-9c3f-d497217a73e9",
+        "position": {
+          "x": "987.0",
+          "y": "34.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "Values": [
+          "Steel pickaxe"
+        ],
+        "ItemRegex": false,
+        "Condition": "All of",
+        "ConditionRegex": false
+      }
+    },
+    {
+      "name": "TraversalAction",
+      "base": {
+        "id": "adffaba9-78a6-46c8-8a4a-fd41269c82f1",
+        "position": {
+          "x": "1835.0",
+          "y": "736.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Condition": "To coordinates:",
+        "Coordinates": [
+          "PickaxeShop"
+        ],
+        "Exact": false,
+        "Radius": "WEB_ONLY"
+      }
+    },
+    {
+      "name": "ShopAction",
+      "base": {
+        "id": "96e4082e-baf9-4b65-a2fb-c99bf7f062ba",
+        "position": {
+          "x": "3010.0",
+          "y": "73.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "ItemValues": [
+          "Steel pickaxe"
+        ],
+        "ItemRegex": false,
+        "Condition": "Buy",
+        "Type": "Five",
+        "QRegex": true
+      }
+    },
+    {
+      "name": "InteractionAction",
+      "base": {
+        "id": "5a91449b-df36-43ac-8656-280c9c6f9db1",
+        "position": {
+          "x": "2632.0",
+          "y": "732.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "list4": [
+            "Trade"
+          ],
+          "within": "",
+          "type": "NpcQuery"
+        }
+      },
+      "variables": {
+        "Condition": "Npc",
+        "ItemValues": [
+          "Nurmof"
+        ],
+        "ItemRegex": false,
+        "ActionValues": [
+          "Trade"
+        ],
+        "ActionRegex": false
+      }
+    },
+    {
+      "name": "InventoryCondition",
+      "base": {
+        "id": "5d395b4b-f385-4b77-8363-16a2739c1848",
+        "position": {
+          "x": "612.0",
+          "y": "465.0"
+        },
+        "flowTasks": {
+          "success": "7c98adab-4af4-49c6-b85c-e02469a3a38f",
+          "failure": "6c7f8813-035d-4628-a16d-c61759426a18"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "ItemValues": [
+          "Coins"
+        ],
+        "ItemRegex": false,
+        "Condition": "Contains any of:"
+      }
+    },
+    {
+      "name": "ShopCondition",
+      "base": {
+        "id": "87f55ebd-d594-4ef7-9df2-29fbdbf9ceeb",
+        "position": {
+          "x": "2630.0",
+          "y": "235.0"
+        },
+        "flowTasks": {
+          "success": "96e4082e-baf9-4b65-a2fb-c99bf7f062ba",
+          "failure": "9f31a2c9-9812-4131-88b4-052b214c240c"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "ItemValues": [
+          "Steel pickaxe"
+        ],
+        "ItemRegex": true,
+        "Quantity": "One",
+        "Condition": "Has in stock:"
+      }
+    },
+    {
+      "name": "ShopCondition",
+      "base": {
+        "id": "a33214e2-6e5e-4201-b81e-a2d22341e9cf",
+        "position": {
+          "x": "1840.0",
+          "y": "448.0"
+        },
+        "flowTasks": {
+          "success": "58a518d9-67fe-4800-a893-20137717757a",
+          "failure": "9b3dabe4-ac5f-4451-93f3-39fc05f88d85"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "ItemValues": [],
+        "ItemRegex": false,
+        "Quantity": "",
+        "Condition": "Is Open"
+      }
+    },
+    {
+      "name": "ShopAction",
+      "base": {
+        "id": "d18d546a-d7f6-46e1-9acf-ab66bed7e625",
+        "position": {
+          "x": "3864.0",
+          "y": "253.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "ItemValues": [],
+        "ItemRegex": false,
+        "Condition": "Close",
+        "Type": "",
+        "QRegex": false
+      }
+    },
+    {
+      "name": "ShopCondition",
+      "base": {
+        "id": "8d25a750-04fa-4324-8a88-8a799df9c654",
+        "position": {
+          "x": "3457.0",
+          "y": "341.0"
+        },
+        "flowTasks": {
+          "success": "d18d546a-d7f6-46e1-9acf-ab66bed7e625"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "ItemValues": [],
+        "ItemRegex": false,
+        "Quantity": "",
+        "Condition": "Is Open"
+      }
+    },
+    {
+      "name": "BooleanModulator",
+      "base": {
+        "id": "9f31a2c9-9812-4131-88b4-052b214c240c",
+        "position": {
+          "x": "3028.0",
+          "y": "381.0"
+        },
+        "flowTasks": {
+          "success": "8d25a750-04fa-4324-8a88-8a799df9c654"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": "True",
+        "Booleans": "NoneInStock"
+      }
+    },
+    {
+      "name": "BooleanModulator",
+      "base": {
+        "id": "58a518d9-67fe-4800-a893-20137717757a",
+        "position": {
+          "x": "2244.0",
+          "y": "369.0"
+        },
+        "flowTasks": {
+          "success": "87f55ebd-d594-4ef7-9df2-29fbdbf9ceeb"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": "False",
+        "Booleans": "NoneInStock"
+      }
+    },
+    {
+      "name": "BooleanCheckModulator",
+      "base": {
+        "id": "9b3dabe4-ac5f-4451-93f3-39fc05f88d85",
+        "position": {
+          "x": "2238.0",
+          "y": "568.0"
+        },
+        "flowTasks": {
+          "success": "764b1d72-da38-4318-87dc-334359c3c5f3",
+          "failure": "5a91449b-df36-43ac-8656-280c9c6f9db1"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": [
+          "NoneInStock"
+        ],
+        "ItemRegex": false
+      }
+    },
+    {
+      "name": "WorldHopAction",
+      "base": {
+        "id": "d567883a-0cd5-475f-9f85-5573b59e41df",
+        "position": {
+          "x": "3059.0",
+          "y": "554.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "WhiteValue": [],
+        "BlackValue": [
+          "MembersOnly",
+          "LootShare",
+          "Tournament",
+          "HighRisk",
+          "LastManStanding",
+          "PVP",
+          "Deadman mode",
+          "Bounty",
+          "SkillTotal500",
+          "SkillTotal750",
+          "SkillTotal1250",
+          "SkillTotal1500",
+          "SkillTotal1750",
+          "SkillTotal2000"
+        ],
+        "Condition": "Random"
+      }
+    },
+    {
+      "name": "BooleanModulator",
+      "base": {
+        "id": "764b1d72-da38-4318-87dc-334359c3c5f3",
+        "position": {
+          "x": "2634.0",
+          "y": "524.0"
+        },
+        "flowTasks": {
+          "success": "d567883a-0cd5-475f-9f85-5573b59e41df"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": "False",
+        "Booleans": "NoneInStock"
+      }
+    },
+    {
+      "name": "CalculationCondition",
+      "base": {
+        "id": "e0c15ee6-8ef7-41ba-9a01-6cfe7898336f",
+        "position": {
+          "x": "593.0",
+          "y": "80.0"
+        },
+        "flowTasks": {
+          "success": "b1e049d1-9a94-4782-9c3f-d497217a73e9",
+          "failure": "0f48a4b1-5bff-46e2-8980-5a64405828e7"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": [
+          "Ten"
+        ],
+        "ValueRegex": false,
+        "Comparators": [
+          "FaladorBankCoordinates"
+        ],
+        "CompRegex": false,
+        "Condition": "Distance to (\u003c)",
+        "Type": "Coordinate"
+      }
+    },
+    {
+      "name": "CalculationCondition",
+      "base": {
+        "id": "dbf278d3-9407-4084-9a4c-142788044bd5",
+        "position": {
+          "x": "1431.0",
+          "y": "425.0"
+        },
+        "flowTasks": {
+          "success": "a33214e2-6e5e-4201-b81e-a2d22341e9cf",
+          "failure": "adffaba9-78a6-46c8-8a4a-fd41269c82f1"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Values": [
+          "Ten"
+        ],
+        "ValueRegex": false,
+        "Comparators": [
+          "PickaxeShop"
+        ],
+        "CompRegex": false,
+        "Condition": "Distance to (\u003c)",
+        "Type": "Coordinate"
+      }
+    },
+    {
+      "name": "InventoryCondition",
+      "base": {
+        "id": "7c98adab-4af4-49c6-b85c-e02469a3a38f",
+        "position": {
+          "x": "1055.0",
+          "y": "552.0"
+        },
+        "flowTasks": {
+          "success": "dbf278d3-9407-4084-9a4c-142788044bd5",
+          "failure": "a7970797-5ec2-4753-94b9-ffd9696521d9"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "list3": [
+            "NotEnoughCoins"
+          ],
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "ItemValues": [
+          "Coins"
+        ],
+        "ItemRegex": false,
+        "Condition": "Contains any of:"
+      }
+    },
+    {
+      "name": "BankDepositAction",
+      "base": {
+        "id": "a7970797-5ec2-4753-94b9-ffd9696521d9",
+        "position": {
+          "x": "1418.0",
+          "y": "798.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "Values": [
+          "Coins"
+        ],
+        "ItemRegex": false,
+        "Condition": "All of",
+        "ConditionRegex": true
+      }
+    }
+  ],
+  "BotCategory": "OTHER",
+  "inventoryData": {
+    "invPreset_Add new preset...": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 94306,
+        "selected": true
+      }
+    ],
+    "invPresets": [
+      "Magic Green dragonhides",
+      "Magic Blue dragonhides",
+      "Magic Red dragonhides",
+      "Magic Black dragonhides",
+      "Blue dragonhides",
+      "Green dragonhides",
+      "Black dragonhides",
+      "Red dragonhides",
+      "WorstCaseCoinsRequiredForSteelPickaxe"
+    ],
+    "invPreset_Green dragonhides": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Green dragonhide",
+        "id": 1753,
+        "noted": false,
+        "quantity": 26,
+        "selected": true
+      },
+      {
+        "name": "Stamina potion",
+        "id": 12627,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_Blue dragonhides": [
+      {
+        "name": "Stamina potion",
+        "id": 12625,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Blue dragonhide",
+        "id": 1751,
+        "noted": false,
+        "quantity": 26,
+        "selected": true
+      },
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_Red dragonhides": [
+      {
+        "name": "Red dragonhide",
+        "id": 1749,
+        "noted": false,
+        "quantity": 26,
+        "selected": true
+      },
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Stamina potion",
+        "id": 12627,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_Magic Green dragonhides": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Astral rune",
+        "id": 9075,
+        "noted": false,
+        "quantity": 2,
+        "selected": true
+      },
+      {
+        "name": "Green dragonhide",
+        "id": 1753,
+        "noted": false,
+        "quantity": 25,
+        "selected": true
+      },
+      {
+        "name": "Nature rune",
+        "id": 561,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_Magic Blue dragonhides": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Astral rune",
+        "id": 9075,
+        "noted": false,
+        "quantity": 2,
+        "selected": true
+      },
+      {
+        "name": "Blue dragonhide",
+        "id": 1751,
+        "noted": false,
+        "quantity": 25,
+        "selected": true
+      },
+      {
+        "name": "Nature rune",
+        "id": 561,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_Magic Red dragonhides": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Red dragonhide",
+        "id": 1749,
+        "noted": false,
+        "quantity": 25,
+        "selected": true
+      },
+      {
+        "name": "Astral rune",
+        "id": 9075,
+        "noted": false,
+        "quantity": 2,
+        "selected": true
+      },
+      {
+        "name": "Nature rune",
+        "id": 561,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_Magic Black dragonhides": [
+      {
+        "name": "Black dragonhide",
+        "id": 1747,
+        "noted": false,
+        "quantity": 25,
+        "selected": true
+      },
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Astral rune",
+        "id": 9075,
+        "noted": false,
+        "quantity": 2,
+        "selected": true
+      },
+      {
+        "name": "Nature rune",
+        "id": 561,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_test stamia": [
+      {
+        "name": "Stamina potion",
+        "id": 12625,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Blue dragonhide",
+        "id": 1751,
+        "noted": false,
+        "quantity": 26,
+        "selected": true
+      }
+    ],
+    "invPreset_test stamia 2": [
+      {
+        "name": "Blue dragonhide",
+        "id": 1751,
+        "noted": false,
+        "quantity": 26,
+        "selected": true
+      }
+    ],
+    "invPreset_Black dragonhides": [
+      {
+        "name": "Black dragonhide",
+        "id": 1747,
+        "noted": false,
+        "quantity": 26,
+        "selected": true
+      },
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      },
+      {
+        "name": "Stamina potion",
+        "id": 12627,
+        "noted": false,
+        "quantity": 1,
+        "selected": true
+      }
+    ],
+    "invPreset_WorstCaseCoinsRequiredForSteelPickaxe": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 14310,
+        "selected": true
+      }
+    ],
+    "invPreset_WorstCaseCoinsRequiredForSteelPickaxe+1": [
+      {
+        "name": "Coins",
+        "id": 995,
+        "noted": false,
+        "quantity": 14801,
+        "selected": true
+      }
+    ]
+  },
+  "internalData": {
+    "Mouse multiplier": 1.0,
+    "Mouse path": "CLOUSE_PATH_GENERATOR",
+    "Disable advanced": false
+  }
+}
